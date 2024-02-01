@@ -11,3 +11,10 @@ class BaseModel:
     def __init__(self, id, created_at, updated_at):
         """Public instance attributes"""
 
+    def __str__(self):
+
+
+    def save(self):
+
+
+    def to_dict(self):
