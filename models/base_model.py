@@ -12,6 +12,7 @@ class BaseModel:
         """Public instance attributes"""
 
     def __str__(self):
+        """returns printed out"""
 
 
     def save(self):
