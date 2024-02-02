@@ -3,3 +3,7 @@
 JSON file and deserializes JSON file to instances"""
 
 import json
+
+
+class FileStorage:
+    """FileStorage class"""
