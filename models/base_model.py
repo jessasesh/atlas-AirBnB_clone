@@ -18,6 +18,10 @@ class BaseModel:
 
 
     def save(self):
+        """updates the public instance attribute
+        updated_at with the current datetime"""
 
 
     def to_dict(self):
+        """returns a dictionary containing all
+        keys/values of __dict__ of the instance"""
