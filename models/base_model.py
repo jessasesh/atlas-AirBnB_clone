@@ -12,7 +12,9 @@ class BaseModel:
         """Public instance attributes"""
 
     def __str__(self):
-        """returns printed out"""
+        """ str representation"""
+        return ("[{}] ({}) {}".format(self.__class__, self.id,
+                                      self.__dict__))
 
 
     def save(self):
