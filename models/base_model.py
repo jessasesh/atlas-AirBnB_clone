@@ -5,6 +5,7 @@ common attributes/methods for other classes"""
 from uuid import uuid4
 from datetime import datetime
 import json
+import models
 
 dt_format = %Y-%m-%dT%H:%M:%S.%f
 
