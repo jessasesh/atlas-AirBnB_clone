@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Console for AirBnB"""
+"""
+This module contains the entry point
+of the command interpreter.
+"""
+
 
 import cmd
 from models.base_model import BaseModel
@@ -9,3 +13,13 @@ from models.review import review
 from models.state import state
 from models.city import city
 from models.user import user
+
+class HBNBCommand(cmd.Cmd):
+
+    prompt = "(hbnb) "
+
+    def do_quit(self, line):
+        """
+        Exits the program.
+        """
+        return True
