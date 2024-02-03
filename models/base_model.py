@@ -9,7 +9,7 @@ from datetime import datetime
 class BaseModel:
     """BaseModel class, used to meet the
     docstring description above"""
-    def __init__(self, id, created_at, updated_at):
+    def __init__(self, id, *args, **kwargs):
         """Public instance attributes"""
         self.id = str(uuid4())
         self.created_at = datetime.datetime.now()
