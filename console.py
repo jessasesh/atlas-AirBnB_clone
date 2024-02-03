@@ -23,3 +23,9 @@ class HBNBCommand(cmd.Cmd):
         Exits the program.
         """
         return True
+    
+    def do_EOF(self, line):
+        """
+        Exits the program.
+        """
+        return True
