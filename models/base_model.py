@@ -9,10 +9,11 @@ import models
 
 dt_format = "%Y-%m-%dT%H:%M:%S.%f"
 
+
 class BaseModel:
     """BaseModel class, used to meet the
     docstring description above"""
-    def __init__(self, id, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """Public instance attributes"""
         if kwargs is not None and len(kwargs) != 0:
             if kwargs:
@@ -36,7 +37,7 @@ class BaseModel:
     def save(self):
         """updates the public instance attribute
         updated_at with the current datetime"""
-        self.updated_at =datetime.today()
+        self.updated_at = datetime.today()
         models.storage.save()
 
 
