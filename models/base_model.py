@@ -9,6 +9,7 @@ import models
 
 dt_format = "%Y-%m-%dT%H:%M:%S.%f"
 
+
 class BaseModel:
     """BaseModel class, used to meet the
     docstring description above"""
