@@ -7,7 +7,7 @@ from datetime import datetime
 import json
 import models
 
-dt_format = %Y-%m-%dT%H:%M:%S.%f
+dt_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 class BaseModel:
     """BaseModel class, used to meet the
@@ -36,6 +36,7 @@ class BaseModel:
     def save(self):
         """updates the public instance attribute
         updated_at with the current datetime"""
+        self.
 
 
     def to_dict(self):
