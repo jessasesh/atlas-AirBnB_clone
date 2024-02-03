@@ -4,13 +4,21 @@ common attributes/methods for other classes"""
 
 from uuid import uuid4
 from datetime import datetime
+import json
 
+d&t_format = %Y-%m-%dT%H:%M:%S.%f
 
 class BaseModel:
     """BaseModel class, used to meet the
     docstring description above"""
     def __init__(self, id, *args, **kwargs):
         """Public instance attributes"""
+        if kwargs is not None and len(kwargs) != 0:
+            if kwargs:
+                for key, value in kwargs:
+                    if key != '__class__':
+
+
         self.id = str(uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
