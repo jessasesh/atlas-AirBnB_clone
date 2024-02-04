@@ -15,6 +15,9 @@ from models.city import city
 from models.user import user
 
 class HBNBCommand(cmd.Cmd):
+    """
+    
+    """
 
     prompt = "(hbnb) "
 
@@ -29,3 +32,92 @@ class HBNBCommand(cmd.Cmd):
         Exits the program.
         """
         return True
+    
+    def emptyline(self):
+        """
+        Handles empty line input.
+        """
+        pass
+
+    def do_help():
+        """
+        Displays list of commands available
+        Displays info about specified command
+        """
+        return
+    
+    def do_create(self, line):
+        """
+        Creates a new instance of BaseModel,
+        saves, and prints the id.
+        
+        Args:
+            line
+
+        """
+        print("** class name missing **")
+        print("** class doesn't exist **")
+
+    def do_show(self, line):
+        """
+        Prints the string representation of
+        an instance based of the class name
+        and id.
+
+        Args:
+            line
+
+        """
+
+        print("** class name missing **")
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+
+    def do_destroy():
+        """
+        Deletes an instance based on the
+        class name and id.
+        
+        Args:
+            line
+
+        """
+
+        print("** class name missing **")
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+
+    def do_all(self, line):
+        """
+        Prints all string representation of
+        all instances based or not on the
+        class name.
+
+        Args:
+            line
+
+        """
+
+        print("** class doesn't exist **")
+
+    def do_update(self, line):
+        """
+        Updates an instance based on the class
+        name and id by adding or updating
+        attribute.
+
+        Args:
+            line
+
+        """
+        print("** class name missing **")
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+        print("** attribute name missing **")
+        print("** value missing **")
+
+    if __name__ == '__main__':
+        HBMBCommand().cmdloop()
