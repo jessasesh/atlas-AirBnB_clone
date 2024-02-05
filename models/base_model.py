@@ -16,13 +16,11 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Public instance attributes"""
         if kwargs:
-            for key, value in kwargs.items():
-                if key != '__class__':
-                        setattr(self, key, value)
-                if key in ["created_at", "updated_at"]:
-                        setattr(self, key, datetime.strptime(value, dt_format))
-
-            models.storage.new(self)
+            for key, values in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                     values = datetime.strptime(values, dt_format)
+                if key != "__class__":
+                    self.__dict__[key] = values
 
     def __str__(self):
         """ str representation"""
