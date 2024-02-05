@@ -118,15 +118,25 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command
         "destroy <class> <id>".
         """
-
-        if len(arg) < 1:
+        args = arg.split()
+        if not args:
             print("** class name missing **")
-            return False
-        elif args[0] not in self.classes:
+            return
+        class_name = args[0]
+        if class_name not in self.classes:
             print("** class doesn't exist **")
-            return False
-        print("** instance id missing **")
-        print("** no instance found **")
+            return
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+        key = f"{args[0]}.{args[1]}"
+        all_objects = models.storage.all()
+        if key in all_objects:
+            all_objects[key].delete()
+            models.storage.save()
+        else:
+            print("** no instance found **")
+            return
 
     def do_all(self, arg):
         """
