@@ -15,15 +15,11 @@ class BaseModel:
     docstring description above"""
     def __init__(self, *args, **kwargs):
         """Public instance attributes"""
-        self.id = str(uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now(
-            
-          if kwargs:
-                for key, value in kwargs.items():
-                    if key != '__class__':
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != '__class__':
                         setattr(self, key, value)
-                    if key in ["created_at", "updated_at"]:
+                if key in ["created_at", "updated_at"]:
                         setattr(self, key, datetime.strptime(value, dt_format))
 
             models.storage.new(self)
