@@ -75,12 +75,12 @@ class HBNBCommand(cmd.Cmd):
         
         """
         args = arg.split()
-        if len(arg) < 1:
+        if not args:
             print("** class name missing **")
-            return False
+            return
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
-            return False
+            return
         else:
             new_object = self.classes[args[0]]()
             new_object.save()
@@ -95,14 +95,20 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command 
         "show <class> <id>".
         """
-
-        if len(arg) < 1:
+        args = arg.split()
+        if not args:
             print("** class name missing **")
-            return False
-
-        print("** class doesn't exist **")
-        print("** instance id missing **")
-        print("** no instance found **")
+            return
+        class_name = args[0]
+        if class_name  not in self.classes:
+            print("** class doesn't exist **")
+            return
+        key = f"{class_name}.{args[1]}"
+        all_objects = models.storage.all()
+        if key in all_objects:
+            print(all_objects[key])
+        else:
+            print("** no instance found **")
 
     def do_destroy(self, arg):
         """
@@ -116,8 +122,9 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) < 1:
             print("** class name missing **")
             return False
-
-        print("** class doesn't exist **")
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return False
         print("** instance id missing **")
         print("** no instance found **")
 
@@ -129,8 +136,12 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command "all" or
         "all <class>".
         """
+        if len(args) < 1:
+            print()
 
-        print("** class doesn't exist **")
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return False
 
     def do_update(self, arg):
         """
