@@ -33,15 +33,19 @@ class HBNBCommand(cmd.Cmd):
         }
     
     
-    def do_quit(self, line):
+    def do_quit(self, arg):
         """
         Exits the program.
+
+        To use, enter the command "quit".
         """
         return True
     
-    def do_EOF(self, line):
+    def do_EOF(self, arg):
         """
         Exits the program.
+
+        To use, enter the command "EOF".
         """
         return True
     
@@ -51,40 +55,48 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    def do_help():
+    def do_help(self, arg):
         """
-        Displays list of commands available
-        Displays info about specified command
-        """
-        return
-    
-    def do_create(self, line):
-        """
-        Creates a new instance of BaseModel,
-        saves, and prints the id.
-        
-        Args:
-            line
+        Displays list of commands available or
+        displays info about specified command.
 
+        To use, enter the command "help" or
+        "help <command>" for more info.
         """
-        if len(line) < 1:
+        return super().do_help(arg)
+    
+    def do_create(self, arg):
+        """
+        Creates new object or instance of BaseModel,
+        saves, and prints the id.
+
+        To use, enter the command 
+        "create <class>".
+        
+        """
+        args = arg.split()
+        if len(arg) < 1:
             print("** class name missing **")
             return False
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return False
+        else:
+            new_object = self.classes[args[0]]()
+            new_object.save()
+            print(new_object.id)
 
-        print("** class doesn't exist **")
-
-    def do_show(self, line):
+    def do_show(self, arg):
         """
         Prints the string representation of
-        an instance based of the class name
-        and id.
+        an object or instance based of the
+        class name and id.
 
-        Args:
-            line
-
+        To use, enter the command 
+        "show <class> <id>".
         """
 
-        if len(line) < 1:
+        if len(arg) < 1:
             print("** class name missing **")
             return False
 
@@ -92,17 +104,16 @@ class HBNBCommand(cmd.Cmd):
         print("** instance id missing **")
         print("** no instance found **")
 
-    def do_destroy():
+    def do_destroy(self, arg):
         """
         Deletes an instance based on the
         class name and id.
         
-        Args:
-            line
-
+        To use, enter the command
+        "destroy <class> <id>".
         """
 
-        if len(line) < 1:
+        if len(arg) < 1:
             print("** class name missing **")
             return False
 
@@ -110,20 +121,18 @@ class HBNBCommand(cmd.Cmd):
         print("** instance id missing **")
         print("** no instance found **")
 
-    def do_all(self, line):
+    def do_all(self, arg):
         """
-        Prints all string representation of
-        all instances based or not on the
-        class name.
+        Displays list of all objects or
+        displays info about specified class.
 
-        Args:
-            line
-
+        To use, enter the command "all" or
+        "all <class>".
         """
 
         print("** class doesn't exist **")
 
-    def do_update(self, line):
+    def do_update(self, arg):
         """
         Updates an instance based on the class
         name and id by adding or updating
@@ -133,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        if len(line) < 1:
+        if len(arg) < 1:
             print("** class name missing **")
             return False
 
