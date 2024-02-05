@@ -55,7 +55,10 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        print("** class name missing **")
+        if len(args) < 1:
+            print("** class name missing **")
+            return False
+
         print("** class doesn't exist **")
 
     def do_show(self, line):
@@ -69,7 +72,10 @@ class HBNBCommand(cmd.Cmd):
 
         """
 
-        print("** class name missing **")
+        if len(args) < 1:
+            print("** class name missing **")
+            return False
+
         print("** class doesn't exist **")
         print("** instance id missing **")
         print("** no instance found **")
@@ -84,7 +90,10 @@ class HBNBCommand(cmd.Cmd):
 
         """
 
-        print("** class name missing **")
+        if len(args) < 1:
+            print("** class name missing **")
+            return False
+
         print("** class doesn't exist **")
         print("** instance id missing **")
         print("** no instance found **")
@@ -112,7 +121,10 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        print("** class name missing **")
+        if len(args) < 1:
+            print("** class name missing **")
+            return False
+            
         print("** class doesn't exist **")
         print("** instance id missing **")
         print("** no instance found **")
