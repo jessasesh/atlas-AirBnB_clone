@@ -14,6 +14,7 @@ from models.state import state
 from models.city import city
 from models.user import user
 
+
 class HBNBCommand(cmd.Cmd):
     """
     
@@ -21,6 +22,17 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+        }
+    
+    
     def do_quit(self, line):
         """
         Exits the program.
@@ -55,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        if len(args) < 1:
+        if len(line) < 1:
             print("** class name missing **")
             return False
 
@@ -72,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
 
         """
 
-        if len(args) < 1:
+        if len(line) < 1:
             print("** class name missing **")
             return False
 
@@ -90,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
 
         """
 
-        if len(args) < 1:
+        if len(line) < 1:
             print("** class name missing **")
             return False
 
@@ -121,10 +133,10 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        if len(args) < 1:
+        if len(line) < 1:
             print("** class name missing **")
             return False
-            
+
         print("** class doesn't exist **")
         print("** instance id missing **")
         print("** no instance found **")
@@ -132,4 +144,4 @@ class HBNBCommand(cmd.Cmd):
         print("** value missing **")
 
     if __name__ == '__main__':
-        HBMBCommand().cmdloop()
+        HBNBCommand().cmdloop()
