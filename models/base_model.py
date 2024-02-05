@@ -2,7 +2,7 @@
 """creating a class that defines all
 common attributes/methods for other classes"""
 
-from uuid import uuid4
+import uuid
 from datetime import datetime
 import json
 import models
@@ -21,6 +21,11 @@ class BaseModel:
                      values = datetime.strptime(values, dt_format)
                 if key != "__class__":
                     self.__dict__[key] = values
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """ str representation"""
