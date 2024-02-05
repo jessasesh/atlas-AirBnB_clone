@@ -34,13 +34,13 @@ class FileStorage:
         serial_obj = {}
         for key, values in self.__objects.items():
             serial_obj[key] = values.to_dict()
-        with open(self.__file_path, "w", encoding="uft-8") as f:
+        with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(serial_obj, f)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         try:
-            with open(self.__file_path, "r", encoding="uft-8") as f:
+            with open(self.__file_path, "r", encoding="utf-8") as f:
                 for key, values in json.load(f).items():
                     values = eval(key.split(".")[0])(**values)
                     self.__objects[key] = values
