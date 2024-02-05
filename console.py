@@ -7,17 +7,17 @@ of the command interpreter.
 
 import cmd
 from models.base_model import BaseModel
-from models.amenity import amenity
-from models.place import place
-from models.review import review
-from models.state import state
-from models.city import city
-from models.user import user
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.city import City
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """
-    
+    This module defines the entry point of the command interpreter.
     """
 
     prompt = "(hbnb) "
