@@ -1,6 +1,18 @@
 #!/usr/bin/python3
-"""This module contains the entry point of the command interpreter."""
+"""
+This module contains the entry point
+of the command interpreter.
+"""
+
+
 import cmd
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.city import City
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -9,6 +21,17 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
+
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+        }
+    
     
     def do_quit(self, arg):
         """
@@ -41,6 +64,93 @@ class HBNBCommand(cmd.Cmd):
         "help <command>" for more info.
         """
         return super().do_help(arg)
+    
+    def do_create(self, arg):
+        """
+        Creates new object or instance of BaseModel,
+        saves, and prints the id.
 
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+        To use, enter the command 
+        "create <class>".
+        
+        """
+        args = arg.split()
+        if len(arg) < 1:
+            print("** class name missing **")
+            return False
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return False
+        else:
+            new_object = self.classes[args[0]]()
+            new_object.save()
+            print(new_object.id)
+
+    def do_show(self, arg):
+        """
+        Prints the string representation of
+        an object or instance based of the
+        class name and id.
+
+        To use, enter the command 
+        "show <class> <id>".
+        """
+
+        if len(arg) < 1:
+            print("** class name missing **")
+            return False
+
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+
+    def do_destroy(self, arg):
+        """
+        Deletes an instance based on the
+        class name and id.
+        
+        To use, enter the command
+        "destroy <class> <id>".
+        """
+
+        if len(arg) < 1:
+            print("** class name missing **")
+            return False
+
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+
+    def do_all(self, arg):
+        """
+        Displays list of all objects or
+        displays info about specified class.
+
+        To use, enter the command "all" or
+        "all <class>".
+        """
+
+        print("** class doesn't exist **")
+
+    def do_update(self, arg):
+        """
+        Updates an instance based on the class
+        name and id by adding or updating
+        attribute.
+
+        Args:
+            line
+
+        """
+        if len(arg) < 1:
+            print("** class name missing **")
+            return False
+
+        print("** class doesn't exist **")
+        print("** instance id missing **")
+        print("** no instance found **")
+        print("** attribute name missing **")
+        print("** value missing **")
+
+    if __name__ == '__main__':
+        HBNBCommand().cmdloop()
