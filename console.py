@@ -6,6 +6,8 @@ of the command interpreter.
 
 
 import cmd
+import models
+import re
 from models.base_model import BaseModel
 from models.amenity import Amenity
 from models.place import Place
@@ -146,6 +148,7 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command "all" or
         "all <class>".
         """
+        args = arg.split()
         if len(args) < 1:
             print()
 
