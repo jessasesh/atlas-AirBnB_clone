@@ -17,8 +17,9 @@ class BaseModel:
         """Public instance attributes"""
         self.id = str(uuid4())
         self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
-            if kwargs:
+        self.updated_at = datetime.datetime.now(
+            
+          if kwargs:
                 for key, value in kwargs.items():
                     if key != '__class__':
                         setattr(self, key, value)
