@@ -1,2 +1,21 @@
 #!/usr/bin/python3
-"""module with review class"""
+"""
+This module defines the Review class.
+"""
+from models.base_model import BaseModel
+
+class Review(BaseModel):
+    """
+    Represents review of a place, by a user.
+    """
+    city_id = ""
+    user_id = "" 
+    name = ""
+    description = ""
+    number_rooms = 0
+    number_bathrooms = 0
+    max_guest = 0
+    price_by_night = 0
+    latitude = 0.0
+    longitude = 0.0
+    amenity_ids []
