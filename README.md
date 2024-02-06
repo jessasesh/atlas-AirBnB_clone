@@ -7,56 +7,84 @@ Hey there! This a partner project for school and it's the first step towards bui
 
 ![815046647d23428a14ca](https://github.com/lukeschula/atlas-AirBnB_clone/assets/126801159/1bdf09c5-784b-4404-8411-379bf23ee55e)  
 
-#### Navigating the Project
+##### Navigating the Project
 
 *  [What is it?](#the-command-interpreter)
 
 *  [How to start it?](#how-to-start)
 
+*  [How to get it?](#installation)
+
 *  [How to use?](#how-to-use)
 
-*  [Examples](#examples-of-program-behavior)
+*  [What's in it?](#contents)
 
-*  [Authors](#authors)
+*  [What does it look like?](#examples-of-program-behavior)
+
+*  [Who created it?](#authors)
     
 ## The Command Interpreter
 The AirBnB Clone Console is a Python-based command-line interface (CLI) that allows you to manage AirBnB-like objects, such as users, states, cities, places, and more. With this console, you can perform various operations on these objects, including creating, retrieving, updating, and deleting them.
 
-Contents
+## How to start
+1. Install.
+	- Check system requirements.
+2. Clone into repository.
+3. Check out content and available commands.
+4. Run the Program.
 
+### Installation
+###### This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3), jQuery (version 3.x), MySQL (version 5.7), Flask, and Chrome (version 57.0).
+Clone into the repository <br>
+```
+git clone https://github.com/lukeschula/atlas-AirBnB_clone.git
+```
 
-### How to start
-1. Install
-	- Check system requirements
-2. Clone into repository
-	- Link
-3. Check out content and available commands
-4. Run the Program and have fun:)
-###### Installation and requirements
-Clone into the repository
-`lk`
+## How to use
+After cloning into the repository, you will need to:
+1. Navigate to the project directory. <br>
+   `cd atlas-AirBnB_clone`
+3. Check out content and available commands.
+4. Run the program and have fun:) <br>
+   `./console.py`
 
-### How to use
- This console has the ability to work in both interactive and non-interactive modes. A prompt will be printed on the screen (hbnb), and waits for the users input.
+> A prompt will be printed on the screen (hbnb) and waits for the users input.
 
+#### Contents
+| File Name | Description |
+|--|--|
+|console.py|entry point of the command interpreter|
+|models|directory that defines classes and their attributes |
+|base_model.py|all common attributes/methods for other classes|
+|amenity.py|defines amenity class|
+|city.py|defines city class|
+|place.py|defines place class|
+|review.py|defines review by user class|
+|state.py|defines state class|
+|user.py|defines user class|
+|engine|directory that conatins the storage engine needed to save user input|
+|file_storage.py|converts input for storage|
+|tests|directory contains all unit test cases for this project|
+|AUTHORS|list of who worked on the project|
+|README.md|contains information about project|
 <details>
-<summary> List of commands available </summary>
+<summary> Commands Available </summary>
 <br>
-- help
-- create
-- show
-- destroy
-- all
-- update
-- quit
-- EOF
+	
+- `help <command>`
+- `create <class>`
+- `show <class> <id>`
+- `destroy <class> <id>`
+- `all` or `all <class>`
+- `update <class> <id> <attribute name> "<attribute value>"`
+- `EOF`
+- `quit`
 
 </details>
 
+### Examples of program behavior  
 
-#### Examples of program behavior  
-
-> Interactive mode
+###### Interactive mode
 
 ```
 $ ./console.py
@@ -82,7 +110,7 @@ EOF help quit
 $
 ```
 
-> Non-interactive mode
+###### Non-interactive mode
 
 ```
 
@@ -129,8 +157,8 @@ $
   
 
 
-#### Authors
-Luke Schula(https://github.com/lukeschula) 
+### Authors
+Luke Schula(https://github.com/lukeschula) <br> 
 Jess Dison(https://github.com/jessasesh)
 
 ![images](https://github.com/lukeschula/atlas-AirBnB_clone/assets/126801159/c7951a80-32c7-4da7-82c9-fc4347038846)
