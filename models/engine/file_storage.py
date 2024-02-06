@@ -32,22 +32,20 @@ class FileStorage:
     def save(self):
         """serializes __objects to the JSON file"""
         serial_obj = {}
-        for key, values in self.__objects.items():
-            serial_obj[key] = values.to_dict()
-        with open(self.__file_path, 'w') as file:
-            json.dump(new, file)
+        for key in self.__objects:
+            serial_obj[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
+            json.dump(serial_obj, f)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
-        classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
-        'State': State, 'Amenity': Amenity, 'Place': Place, 'Review': Review}
+    classes = {"BaseModel": BaseModel, "User": User, "State": State,
+    "Place": Place, "City": City, "Amenity": Amenity, "Review": Review}
 
-        try:
-            with open(self.__file_path, "r") as file:
-                obj = json.load(file)
-                for key, values in obj.items():
-                    k_split = key.split('.')
-                    tmp = classes[k_split[0]](**values)
-                    self.new(tmp)
-        except FileNotFoundError:
-            pass
+    try:
+        with open(self.__file_path, 'r', encoding='utf-8') as f:
+            deserial = json.load(f)
+        for key in deserial:
+            self.__objects[key] = classes[deserial[key]["__class__"]](**deserial[key])
+    except FileNotFoundError:
+        pass
