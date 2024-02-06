@@ -33,8 +33,7 @@ class HBNBCommand(cmd.Cmd):
         "Place": Place,
         "Review": Review
         }
-    
-    
+
     def do_quit(self, arg):
         """
         Exits the program.
@@ -42,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command "quit".
         """
         return True
-    
+
     def do_EOF(self, arg):
         """
         Exits the program.
@@ -50,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
         To use, enter the command "EOF".
         """
         return True
-    
+
     def emptyline(self):
         """
         Handles empty line input.
@@ -66,15 +65,15 @@ class HBNBCommand(cmd.Cmd):
         "help <command>" for more info.
         """
         return super().do_help(arg)
-    
+
     def do_create(self, arg):
         """
         Creates new object or instance of BaseModel,
         saves, and prints the id.
 
-        To use, enter the command 
+        To use, enter the command
         "create <class>".
-        
+
         """
         args = arg.split()
         if not args:
@@ -94,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
         an object or instance based of the
         class name and id.
 
-        To use, enter the command 
+        To use, enter the command
         "show <class> <id>".
         """
         args = arg.split()
@@ -102,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name  not in self.classes:
+        if class_name not in self.classes:
             print("** class doesn't exist **")
             return
         key = f"{class_name}.{args[1]}"
@@ -116,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Deletes an instance based on the
         class name and id.
-        
+
         To use, enter the command
         "destroy <class> <id>".
         """
@@ -176,5 +175,6 @@ class HBNBCommand(cmd.Cmd):
         print("** attribute name missing **")
         print("** value missing **")
 
-    if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
