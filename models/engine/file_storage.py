@@ -39,10 +39,15 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file to __objects"""
+        classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
+        'State': State, 'Amenity': Amenity, 'Place': Place, 'Review': Review}
+
         try:
-            with open(self.__file_path, "r", encoding="utf-8") as f:
-                for key, values in json.load(f).items():
-                    values = eval(key.split(".")[0])(**values)
-                    self.__objects[key] = values
+            with open(self.__file_path, "r") as file:
+                obj = json.load(file)
+                for key, values in obj.items():
+                    k_split = key.split('.')
+                    tmp = classes[k_split[0]](**values)
+                    self.new(tmp)
         except FileNotFoundError:
             pass
