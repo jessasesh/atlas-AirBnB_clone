@@ -53,20 +53,20 @@ After cloning into the repository, you will need to:
 #### Contents
 | File Name | Description |
 |--|--|
-|console.py|entry point of the command interpreter|
-|models|directory that defines classes and their attributes |
-|base_model.py|all common attributes/methods for other classes|
-|amenity.py|defines amenity class|
-|city.py|defines city class|
-|place.py|defines place class|
-|review.py|defines review by user class|
-|state.py|defines state class|
-|user.py|defines user class|
-|engine|directory that conatins the storage engine needed to save user input|
-|file_storage.py|converts input for storage|
-|tests|directory contains all unit test cases for this project|
-|AUTHORS|list of who worked on the project|
-|README.md|contains information about project|
+|[console.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/console.py)|entry point of the command interpreter|
+|[models](https://github.com/lukeschula/atlas-AirBnB_clone/tree/main/models)|directory that defines classes and their attributes |
+|[base_model.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/base_model.py)|all common attributes/methods for other classes|
+|[amenity.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/amenity.py)|defines amenity class|
+|[city.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/city.py)|defines city class|
+|[place.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/place.py)|defines place class|
+|[review.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/review.py)|defines review by user class|
+|[state.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/state.py)|defines state class|
+|[user.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/user.py)|defines user class|
+|[engine](https://github.com/lukeschula/atlas-AirBnB_clone/tree/main/models/engine)|directory that conatins the storage engine needed to save user input|
+|[file_storage.py](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/models/engine/file_storage.py)|converts input for storage|
+|[tests](https://github.com/lukeschula/atlas-AirBnB_clone/tree/main/tests)|directory contains all unit test cases for this project|
+|[AUTHORS](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/AUTHORS)|list of who worked on the project|
+|[README.md](https://github.com/lukeschula/atlas-AirBnB_clone/blob/main/README.md)|contains information about project|
 <details>
 <summary> Commands Available </summary>
 <br>
