@@ -1,6 +1,6 @@
 <img src="https://github.com/lukeschula/atlas-AirBnB_clone/assets/126801159/88e499f5-38c2-4d16-b33b-4e541177bdd9" width="100%" height="50%" >
 
-* under const. *
+
 # AirBnB Clone
 
 Hey there! This a partner project for school and it's the first step towards building our first full web application. This will be a progressive project that will later include HTML/CSS templating, database storage, API, and front-end integration.
