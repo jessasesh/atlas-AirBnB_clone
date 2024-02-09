@@ -37,6 +37,11 @@ class FileStorage:
         with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(serial_obj, f)
 
+    def delete(self, obj=None):
+    """Delete obj from __objects if it's inside."""
+        if obj:
+            self.__objects.pop(f"{obj.__class__.__name__}.{obj.id}", None)
+            self.save()
 
     def reload(self):
         """deserializes the JSON file to __objects"""
