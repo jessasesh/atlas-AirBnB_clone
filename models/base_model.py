@@ -48,3 +48,7 @@ class BaseModel:
         new_dicts["created_at"] = self.created_at.isoformat()
         new_dicts["updated_at"] = self.updated_at.isoformat()
         return new_dicts
+
+    def delete(self):
+        """Delete method"""
+        models.storage.delete(self)
