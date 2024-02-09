@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
         if class_name not in self.classes:
             print("** class doesn't exist **")
             return
-        key = f"{class_name}.{args[1]}"
+        key = {class_name}.{args[1]}
         all_objects = models.storage.all()
         if key in all_objects:
             print(all_objects[key])
