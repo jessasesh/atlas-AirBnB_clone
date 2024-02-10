@@ -6,8 +6,9 @@ of the command interpreter.
 
 
 import cmd
+import json
 import models
-import re
+from models import storage
 from models.base_model import BaseModel
 from models.amenity import Amenity
 from models.place import Place
@@ -173,15 +174,31 @@ class HBNBCommand(cmd.Cmd):
             line
 
         """
-        if len(arg) < 1:
-            print("** class name missing **")
-            return False
+        args = arg.split()
+        if len(args) == 0:
+            print('** class name missing **')
+        elif args[0] not in self.classes:
+            print('** class doesn\'t exist **')
+        elif len(args) == 1:
+            print('** instance id missing **')
+        else:
+            class_name, instance_id = args[0], args[1]
+            key = f'{class_name}.{instance_id}'
+            all_objs = storage.all()
 
-        print("** class doesn't exist **")
-        print("** instance id missing **")
-        print("** no instance found **")
-        print("** attribute name missing **")
-        print("** value missing **")
+        if key not in all_objs:
+            print('** no instance found **')
+        elif len(args) == 2:
+            print('** attribute name missing **')
+        elif len(args) == 3:
+            print('** value missing **')
+        else:
+            obj = all_objs[key]
+            attr_name, attr_value_str = args[2], args[3].strip('"')
+            attr_type = type(getattr(obj, attr_name, ''))
+            attr_value = attr_type(attr_value_str)
+            setattr(obj, attr_name, attr_value)
+            obj.save()
 
 
 if __name__ == '__main__':
