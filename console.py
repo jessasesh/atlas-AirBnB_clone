@@ -170,8 +170,8 @@ class HBNBCommand(cmd.Cmd):
         name and id by adding or updating
         attribute.
 
-        Args:
-            line
+        To use, enter the command "update <class> <id> 
+        <new attribute> "<new attribute value>"".
 
         """
         args = arg.split()
