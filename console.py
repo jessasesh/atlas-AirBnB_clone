@@ -185,20 +185,19 @@ class HBNBCommand(cmd.Cmd):
             class_name, instance_id = args[0], args[1]
             key = f'{class_name}.{instance_id}'
             all_objs = storage.all()
-
-        if key not in all_objs:
-            print('** no instance found **')
-        elif len(args) == 2:
-            print('** attribute name missing **')
-        elif len(args) == 3:
-            print('** value missing **')
-        else:
-            obj = all_objs[key]
-            attr_name, attr_value_str = args[2], args[3].strip('"')
-            attr_type = type(getattr(obj, attr_name, ''))
-            attr_value = attr_type(attr_value_str)
-            setattr(obj, attr_name, attr_value)
-            obj.save()
+            if key not in all_objs:
+                print('** no instance found **')
+            elif len(args) == 2:
+                print('** attribute name missing **')
+            elif len(args) == 3:
+                print('** value missing **')
+            else:
+                obj = all_objs[key]
+                attr_name, attr_value_str = args[2], args[3].strip('"')
+                attr_type = type(getattr(obj, attr_name, ''))
+                attr_value = attr_type(attr_value_str)
+                setattr(obj, attr_name, attr_value)
+                obj.save()
 
 
 if __name__ == '__main__':
