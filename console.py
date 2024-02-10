@@ -147,17 +147,21 @@ class HBNBCommand(cmd.Cmd):
         """
         Displays list of all objects or
         displays info about specified class.
-
+    
         To use, enter the command "all" or
         "all <class>".
         """
         args = arg.split()
+        all_objs = storage.all()
         if len(args) < 1:
-            print()
-
+            for obj in all_objs.values():
+                print(obj)
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
-            return False
+        else:
+            for obj in all_objs.values():
+                if obj.__class__.__name__ == args[0]:
+                    print(obj)
 
     def do_update(self, arg):
         """
