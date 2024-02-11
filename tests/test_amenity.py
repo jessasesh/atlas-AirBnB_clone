@@ -19,7 +19,7 @@ class TestAmenity(unittest.TestCase):
         self.assertTrue(hasattr(Amenity1, "id"))
         self.assertTrue(hasattr(Amenity1, "created_at"))
         self.assertTrue(hasattr(Amenity1, "updated_at"))
-        slef.assertTrue(hasattr(Amenity1, "name"))
+        self.assertTrue(hasattr(Amenity1, "name"))
 
     def test_User(self):
         """check if values are correct type"""
