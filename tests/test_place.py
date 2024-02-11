@@ -40,7 +40,7 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(Place2.user_id, str)
         self.assertIsInstance(Place2.name, str)
         self.assertIsInstance(Place2.description, str)
-        self.assertIsInstance(Place2.number_rooms, str)
+        self.assertIsInstance(Place2.number_rooms, int)
         self.assertIsInstance(Place2.number_bathrooms, int)
         self.assertIsInstance(Place2.max_guest, int)
         self.assertIsInstance(Place2.price_by_night, int)
