@@ -26,5 +26,5 @@ class TestAmenity(unittest.TestCase):
         Amenity2 = Amenity()
         self.assertIsInstance(Amenity2.id, str)
         self.assertIsInstance(Amenity2.created_at, datetime)
-        self.assertIsInstance(Amenity2.updated_at,datetime)
+        self.assertIsInstance(Amenity2.updated_at, datetime)
         self.assertIsInstance(Amenity2.name, str)
