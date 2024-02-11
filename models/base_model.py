@@ -13,11 +13,12 @@ class BaseModel:
     docstring description above"""
     def __init__(self, *args, **kwargs):
         """Public instance attributes"""
+        dt_format = "%Y-%m-%dT%H:%M:%S.%f"
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
                     if key == "created_at" or key == "updated_at":
-                        value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                        value = datetime.strptime(value, dt_format)
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
