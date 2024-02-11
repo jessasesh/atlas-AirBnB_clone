@@ -8,7 +8,6 @@ import json
 import models
 
 
-
 class BaseModel:
     """BaseModel class, used to meet the
     docstring description above"""
@@ -19,7 +18,7 @@ class BaseModel:
                 if key != "__class__":
                     if key == "created_at" or key == "updated_at":
                         values = datetime.strptime(values,
-                        "%Y-%m-%dT%H:%M:%S.%f")
+                                                    "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, values)
         else:
             self.id = str(uuid.uuid4())
@@ -32,13 +31,11 @@ class BaseModel:
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                       self.__dict__))
 
-
     def save(self):
         """updates the public instance attribute
         updated_at with the current datetime"""
         self.updated_at = datetime.today()
         models.storage.save()
-
 
     def to_dict(self):
         """returns a dictionary containing all
