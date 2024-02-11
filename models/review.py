@@ -4,6 +4,7 @@ This module defines the Review class.
 """
 from models.base_model import BaseModel
 
+
 class Review(BaseModel):
     """
     Represents review of a place, by a user.
