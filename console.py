@@ -148,7 +148,6 @@ class HBNBCommand(cmd.Cmd):
         """
         Displays list of all objects or
         displays info about specified class.
-    
         To use, enter the command "all" or
         "all <class>".
         """
@@ -170,9 +169,8 @@ class HBNBCommand(cmd.Cmd):
         name and id by adding or updating
         attribute.
 
-        To use, enter the command "update <class> <id> 
-        <new attribute> "<new attribute value>"".
-
+        To use, enter the command "update <class> <id>
+        <new attribute>"<new attribute value>"".
         """
         args = arg.split()
         if len(args) == 0:
