@@ -14,6 +14,7 @@ from models.review import Review
 from models.amenity import Amenity
 from models.place import Place
 
+
 class FileStorage:
     """FileStorage class"""
 
